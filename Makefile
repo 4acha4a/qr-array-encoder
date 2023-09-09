@@ -14,7 +14,7 @@ SRC = qr-bmp.c
 SRC_QUIRC =./quirc/lib/quirc.c ./quirc/lib/identify.c ./quirc/lib/decode.c ./quirc/lib/version_db.c
 
 # Output executable
-OUTPUT = main
+OUTPUT = qr-bmp
 
 all: $(OUTPUT)
 
@@ -25,6 +25,8 @@ clean:
 	rm -f $(OUTPUT)
 
 test:
+	./image-to-grayscale.py qrcode.png > qrcode_600x600_grayscale.bin
+	./qr-bmp qrcode_600x600_grayscale.bin
 
 
 .PHONY: all clean
