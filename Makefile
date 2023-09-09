@@ -26,7 +26,7 @@ clean:
 
 test:
 	./image-to-grayscale.py qrcode.png > qrcode_600x600_grayscale.bin
-	./qr-bmp qrcode_600x600_grayscale.bin
+	./qr-bmp < qrcode_600x600_grayscale.bin
 
 
 .PHONY: all clean

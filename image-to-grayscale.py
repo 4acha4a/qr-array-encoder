@@ -29,5 +29,5 @@ if __name__ == "__main__":
     # Print the grayscale array to stdout
 
     # TODO: Print this array as binary
-    # print(grayscale_array)
+    print(grayscale_array)
 
