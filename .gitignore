@@ -1,2 +1,5 @@
 quirc/
 tags
+main*
+qr-bmp*
+*.bin
