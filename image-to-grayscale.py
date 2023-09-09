@@ -1,9 +1,13 @@
+#!/usr/bin/env python3
 from PIL import Image
 import sys
 
 def image_to_grayscale_array(image_path):
     # Open the image file
     with Image.open(image_path) as img:
+
+        # TODO: check if image is square, this tool should abort 
+
         # Convert image to grayscale
         grayscale_img = img.convert('L')
         grayscale_img = grayscale_img.resize((600, 600))
@@ -23,4 +27,7 @@ if __name__ == "__main__":
     grayscale_array = image_to_grayscale_array(image_path)
 
     # Print the grayscale array to stdout
-    print(grayscale_array)
+
+    # TODO: Print this array as binary
+    # print(grayscale_array)
+

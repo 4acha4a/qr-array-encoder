@@ -9,6 +9,7 @@ const int HEIGHT = 600;
 const int BUFFER_SIZE = WIDTH*HEIGHT;
 
 int main(int argc, char **argv) {
+    // TODO: fix comments structure
 // -------- initialize QR --------
     struct quirc *qr;
 
@@ -29,14 +30,14 @@ int main(int argc, char **argv) {
 // -------- get data from input --------
 
     int i = 0;
-    char input[BUFFER_SIZE*5];
-    fgets(input, sizeof(input), stdin);
+    char input[BUFFER_SIZE*5]; // TODO: read to image array 
+    fgets(input, sizeof(input), stdin); // TODO: read in binary format 
 
     // Initialize variables
     uint8_t number;
     char *token, *outerToken, *rest = input;
 
-// -------- write input data to QR --------
+// -------- write input data to QR -------- // TODO: unnessesary code, remove
     while ((outerToken = strtok_r(rest, "[]", &rest))) {
         while ((token = strtok_r(outerToken, ", ", &outerToken))) {
             number = (uint8_t)atoi(token);
