@@ -9,8 +9,15 @@ python3 gcc git
 
 # Usage:
 ```bash
+# make
+make
+
+# test
+make test
+
+# test manually
 ./image-to-grayscale.py qrcode.png > qrcode_600x600_grayscale.bin
-./qr-bmp qrcode_600x600_grayscale.bin <br />
+./qr-bmp < qrcode_600x600_grayscale.bin
 ```
 
 # Array structure
