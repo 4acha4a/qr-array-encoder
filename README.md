@@ -8,8 +8,10 @@ python3 gcc git
 ```
 
 # Usage:
+```bash
 ./image-to-grayscale.py qrcode.png > qrcode_600x600_grayscale.bin
 ./qr-bmp qrcode_600x600_grayscale.bin <br />
+```
 
 # Array structure
 Standard Python-like 2D array of u8int_t: [[num1, num2, num3], [num4, num5, num6], ...]
