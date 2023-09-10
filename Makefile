@@ -4,7 +4,7 @@
 CC = gcc
 
 # Compiler flags
-CFLAGS = -g -I./quirc/lib
+CFLAGS = -g -I./lib/quirc/lib 
 
 # Libraries
 LIBS = -L/usr/local/lib
