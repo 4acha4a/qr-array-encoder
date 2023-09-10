@@ -9,8 +9,8 @@ const int HEIGHT = 600;
 const int BUFFER_SIZE = WIDTH*HEIGHT;
 
 int main(int argc, char **argv) {
-    // TODO: fix comments structure
-// -------- initialize QR --------
+
+    // initialize QR
     struct quirc *qr;
 
     qr = quirc_new();
@@ -23,37 +23,21 @@ int main(int argc, char **argv) {
         perror("Failed to allocate video memory");
         abort();
     }
-
+ 
     uint8_t *image;
     int w, h;
     image = quirc_begin(qr, &w, &h); 
-// -------- get data from input --------
 
-    int i = 0;
-    char input[BUFFER_SIZE*5]; // TODO: read to image array 
-    fgets(input, sizeof(input), stdin); // TODO: read in binary format 
+    // get data from input
+    fread(image, BUFFER_SIZE, 1, stdin);
 
-    // Initialize variables
-    uint8_t number;
-    char *token, *outerToken, *rest = input;
-
-// -------- write input data to QR -------- // TODO: unnessesary code, remove
-    while ((outerToken = strtok_r(rest, "[]", &rest))) {
-        while ((token = strtok_r(outerToken, ", ", &outerToken))) {
-            number = (uint8_t)atoi(token);
-            image[i] = number;
-            ++i;
-            if (i > BUFFER_SIZE)
-                break;
-        }
-    }
-// -------- create QR --------
+    // create QR
     quirc_end(qr);
 
-// -------- decode QR --------
+    // decode QR
     int num_codes;
     num_codes = quirc_count(qr);
-    for (i = 0; i < num_codes; i++) {
+    for (size_t i = 0; i < num_codes; i++) {
         struct quirc_code code;
         struct quirc_data data;
         quirc_decode_error_t err;
@@ -65,7 +49,7 @@ int main(int argc, char **argv) {
         if (err)
             printf("DECODE FAILED: %s\n", quirc_strerror(err));
         else
-            printf("Data: %s\n", data.payload);
+            printf("Data: %s\n", data.payload); // print decoded data
     }
     quirc_destroy(qr);
 }

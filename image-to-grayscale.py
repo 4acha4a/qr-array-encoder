@@ -5,9 +5,6 @@ import sys
 def image_to_grayscale_array(image_path):
     # Open the image file
     with Image.open(image_path) as img:
-
-        # TODO: check if image is square, this tool should abort 
-
         # Convert image to grayscale
         grayscale_img = img.convert('L')
         grayscale_img = grayscale_img.resize((600, 600))
@@ -19,15 +16,22 @@ def image_to_grayscale_array(image_path):
         return grayscale_array
 
 if __name__ == "__main__":
-    # if len(sys.argv) < 2:
-    #     print("Usage: python3 image_to_grayscale_array.py <path_to_image>")
-    #     sys.exit(1)
+    if len(sys.argv) < 2:
+        print("Usage: ./image_to_grayscale_array.py <path_to_image>")
+        sys.exit(1)
 
     image_path = sys.argv[1]
     grayscale_array = image_to_grayscale_array(image_path)
 
-    # Print the grayscale array to stdout
+    bytesArr = bytearray()
 
     # TODO: Print this array as binary
-    print(grayscale_array)
+    for i in range(len(grayscale_array)):
+        for j in range(len(grayscale_array[i])):
+            byte = grayscale_array[i][j]
+            bytesArr.append(byte)
+        
+    binary_data = bytes(bytesArr)
 
+    # Write binary data to stdout
+    sys.stdout.buffer.write(binary_data)

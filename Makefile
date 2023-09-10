@@ -11,7 +11,7 @@ LIBS = -L/usr/local/lib
 
 # Source file
 SRC = qr-bmp.c
-SRC_QUIRC =./quirc/lib/quirc.c ./quirc/lib/identify.c ./quirc/lib/decode.c ./quirc/lib/version_db.c
+SRC_QUIRC =./lib/quirc/lib/quirc.c ./lib/quirc/lib/identify.c ./lib/quirc/lib/decode.c ./lib/quirc/lib/version_db.c
 
 # Output executable
 OUTPUT = qr-bmp
